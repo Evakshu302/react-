@@ -1,32 +1,13 @@
-// src/App.jsx
-import { useState } from 'react'
 import './App.css'
-
-// Extra component example
-function Hello() {
-  return <h2>Hello from Hello component!</h2>
-}
+import Chai from "./chai";
 
 function App() {
-  // State example for counter
-  const [count, setCount] = useState(0)
-
+  const user="hi buddy"
   return (
-    <div className="App">
-      {/* Main heading */}
-      <h1>My First React App</h1>
-
-      {/* Extra component */}
-      <Hello />
-
-      {/* Counter button */}
-      <p>Count is {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-
-      {/* Small paragraph */}
-      <p>Edit <code>src/App.jsx</code> and save to see hot reload in action!</p>
+    <div>
+      <Chai />
+      <h1>hi ladli {user}</h1>
     </div>
   )
 }
-
 export default App
