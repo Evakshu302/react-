@@ -1,6 +1,5 @@
 import './App.css'
 import Chai from "./chai";
-
 function App() {
   const user="hi buddy"
   return (
