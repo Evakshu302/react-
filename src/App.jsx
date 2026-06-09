@@ -1,12 +1,15 @@
 import './App.css'
 import Chai from "./chai";
+
 function App() {
   const user="hi buddy"
+
   return (
-    <div>
+    <>
+      <h1>hi ladli hi buddy {user}</h1>
       <Chai />
-      <h1>hi ladli {user}</h1>
-    </div>
-  )
+    </>
+  );
 }
-export default App
+
+export default App;
