@@ -1,30 +1,56 @@
 import React from "react";
+import Card from "./components/Card";
 const App = () => {
+  const jobOpenings = [
+    {
+      id: 1,
+      title: "Frontend Developer",
+      company: "Google",
+      location: "Bangalore",
+      salary: "12 LPA",
+      experience: "1-3 Years",
+    },
+    {
+      id: 2,
+      title: "Backend Developer",
+      company: "Microsoft",
+      location: "Hyderabad",
+      salary: "15 LPA",
+      experience: "2-4 Years",
+    },
+    {
+      id: 3,
+      title: "Full Stack Developer",
+      company: "Amazon",
+      location: "Pune",
+      salary: "18 LPA",
+      experience: "3-5 Years",
+    },
+    {
+      id: 4,
+      title: "React Developer",
+      company: "Infosys",
+      location: "Noida",
+      salary: "8 LPA",
+      experience: "0-2 Years",
+    },
+    {
+      id: 5,
+      title: "Node.js Developer",
+      company: "TCS",
+      location: "Mumbai",
+      salary: "10 LPA",
+      experience: "1-3 Years",
+    },
+  ];
+  console.log(jobOpenings);
   return (
     <div className="parent">
-      <div className="card">
-        <div className="top">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAABGlBMVEX///8pKSn/cAD/ewD6fAb9/vn+7df77tz8///7gwsAAAD3mzQnJyckJCQREREhISG7u7sMDAxHR0f19fVQUFAYGBg5OTnV1dVeXl7Nzc0dHR3Hx8cWFha0tLSenp7d3d3p6elKSkqurq6IiIh9fX1wcHCTk5Pi4uIvLy9AQED3mS9oaGg4ODiAgID3rF1zc3NhYWHxnjmkpKT9z6j//fL0lB/7mDr5z57xmCv2cQD/2qb978/7+Ob03rz66db99Pb93sL1oET9lBbzlxLssHP72rX5wI3lnDDzmxXxr2r+kwXvmyvvmUnyzLL31Kn/8urrrVPwoBj/kDjzumb5yo7rxHnoqEP7lEHwtl7+3NDzp0/847rprGf5vXXE2EthAAAOUUlEQVR4nO2dC1fiSBbHw2g0kycRIhIibxDiMzbBOKINUey23caZWad3153+/l9jK4+qSgIoRfNo99R/+nTTId5Ufrn31r1VmdPMxuYm+EX1ljY2NzaYzY3Ly1+o3tTlxsYms3n52xbV27r6FXjWxuUWx1C9Kc6DtfnL1rrH8S4EYG1SWDOKwiIQhUUgCotAFBaBKCwCUVgEorAIRGERiMIiEIVFIAqLQBQWgSgsAlFYBKKwCERhEYjCIhCFRSAKi0AUFoEoLAJRWASisAhEYRGIwiIQhUUgCotAFBaBKCwCUVgEorAIRGERiMIiEIVFIAqLQBQWgSgsAlFYBKKwCERhEYjCIhCFRSAKi0AUFoEoLAL9CKzMQalUOsgsekjl5ZhdgOaFVU6fZndTuqal2nvH+cSdlQL5nzP7jb1s9qxZQt8eFA+zlWyjWp5kttrIHomapgOztVziy9xkxS9eTtfPgPm9ejpp/yAYVXC41DzLZrOH55MGMVXzwTqot2RdkVJiKiWKki7vVKPfHmuSJ70BPlePZEWRJMVQasGXmboiK963cquZ9J5SIyXrkgSspkRJ0YzKfvTbNC9PEl8fH5ikKMD+aSn64zndH5UilcEgTnXDG4Qip5oEtz0XrKKiSamoJDlbxl+3gy+lFsPUVHiiKGd9HkeaiI7slGNma5ouxs2qZxGeRSM1SUoFn3IuadiCqOtREmk1OMrnmEzbwIPYm/2+54F1KIvjQ27hG98JAIlHTJGPnGIATytLSuSI3o5YzWTlcRJaG9OaAkvKojNO1fjAAAn84+nQPICV1aPDOlwmrMOJg1Z2krCkdpmPncKn48MEA61hs5X4V5AnfvBvwmqM09YwSQSrdK4mh7U0WEV8KZAA8DVVlLegZ1WO4/cv7RbiwwQxgZ58Dd9pzCxfeAsWDMMmNo4dzHPnOCw1LyWCPerfi4WVQa6uG5XDrKaPXzOElWqJiXCVWsn4VWEKP0BOqBnZw6yBzCrItYqyiIVNKGEY5bAFOaWjXMnDK0BYSiPpwnx5WbDQ81WPy8AtMtgj0DV3Io4BiotIlvJmT0XX8fc6jMM6vAO56Zkpn2Kz0PlyqRbSbuRWc4mrAguZcvoovKyoZOKw/EHoRmSKkmOT7iJhtcKLqOfhARRrKox9DEvS6sXmXjSVSPJhrVZBAaWchT8TTk8iMnIIGfOoAMhgFZBNOcRdgI4VpqAyjEWjmIAFrqrUzptZNAht1vKBFBbM2QrKnGUYlzJMWgiW1PJvNJrljvwjTThQKZwW8tAsmppQVKkoaUV0JCYMMFklYaEqQ9cK/o5hgZnHO3AKn7Iy63xIDkuVQWRJPC5Dk48Qw4LJeQ9FonoQPwUmuhyvGhqoJnE6ZyCsSUFS18IvReh3aOLl8/Ak+BBD2jgM+XAQsCbDD/4NEYfhQaFarB1WdnABE9agKS0JSzoKD+zDceqw2j4PXUvcDQ+U0p7ZdqRChEl8Aqw0yuUoGVShQR2dBX1NPw1+CA3iODwB5klph5lNC1h1mAoLjao0FlIw54jTp+3WVFgZVOjjqRKmuIiXNEP3E0X/rwiWCn0PAp65dlgmLAOGagbFCEzWefXNcU6HtQeTjaQh/1bExAPCSSucphEsHp4Aqz5pl5lNPwArU8qni8d7FZizxmDJqDQOYYmoukCwxtNFplTYL9b3KtB7xmDhAhzX3uhxGOfoPFQBB/4MYYkteAKcQ5YOK1/MtiTNMHRcbY/BwvMY8izoCVNgZQrNbEvRZEOXkNkkrAPESsPrDbkJ00EOnhgAhLDwJVcDK1M80gwlWY2Pw0IT02ywys2WoY2ZTcJq48IEH0RehL0ZNwVB5YsqeJTnVgKrKhrJRuZ1WJkxWIUJsM4VbYLVJKwaqiX5yOIgmm8jsFA1EczB64FVxwshkq7JMnzSPwgrsvAj6YaBS/QYrDyuGqJ19z5EOAmW4jfTa4FVRzlD59v1YjW9Oy3BE8E6w92HWjku7hdaE2GhXBavJLFn4bMz64e1D4cg8rWyf2Rq6UACC62vSEEnPaV0aMDSPbFUkJ4Aa/1hmEFRZ8CUsQhY6MakVtiLTISFS3c+nslQgjdwG4ZsautK8LjSQ3VBewFhWIPVNl5jkMZhlVFa0xO9L+oRIisIpXjttQZYu7DvwynjaAGwYMEQWQCYEFiw28OLVEjxkItdI1GUrg7WpEpZm7bqMDssVBJFyIwfwks9cnJLcdJDhK1fot1ZHSzk2niKLo9FADmsNHICVMfmxrIQujbQbmu30igWymhgtbBfjKw6oNAOitfVw8qPw0IPEIUQOaz9sRUBtGaAW+OjyGq1KHobt7LchlvKKOZw0oPnB/l9HbDgmFCCYvAmBGznyWFVxxMUyuXhCguzn9gZ8r+TDL4e4IIWkH8jRwzxrR4WaljRwl4TL23DpDVHGEIjKOWgtVC0A9SIbs9GpAVG4UqeKIfXOAvPh6tAq4eFt03lgMw5H+nnwkKRHBZyWLj72IzkJ9Hwf6oSf2MAK/BG3NwEMFCVC2ucNZQOuNeVDwu5dDa2kx9edY7SASNXTwu5/XZsPzW4vZ3XYWFf1FvVQrUCfRW9CrEGWDUcHoqsBuU8votgNW4OWIc4xhRVNZJm8zPAwru/ooG7+xTcnVgHrAM+lZQB9zNT+lFmTli5cbPyLtwmNSoRq5JuyCrP86oMV9TgpJAftwE6AjRjrKORjryTEAKow+4Qvr0zTyONO2R4ahOW9fwpsqrIfLtWLeQOyt6SdkPivX1lA/KojtPi0aS9niWa2AZzSvKGc+CnHPRW2VxLNIk05XlELjAb1gJtRePP0vE2p1Q8UhX0vgSzz8dDVYnsbq5p8e+Yh52cqKi7fuNR4CURP8S2Ery8wWNY4escGFZ4JPImWoPHnZ9a8TMNcBUcR8VgSYj1f4W/AeWzKCuBp7ajRpPfTvTVv3R4ST0CKxxEZH36Vc2zrJxraP4LioaWhXV8no+85XQelDwifhGtEeYb9P5PJlyq0COPPn9mBC8+amdwRWOfxyU941ljOY7h/H+chOO4DoOZQaUrYFy6DhKbnI3v+5fD6lnHAw1DQC8ys2nO3Z1SIZ0ulCIxkVnE28WZnG82emSiWc4jxfofxr8sF4rHx8fFwhJed35X78EDNCzbu7r+AHR9ffOxw6z2X8BZLCyO9e5nKXfAgv84pv88cGzXtm3Hde3bu2EyCperhcLqXG17j385d8AxvXvr1hSABoLp/2k7VyultVBY2/an+87ERLIAdS6Ez6b5aDum6TjWowdLcL++X1jswxfbGnY6CzGWEHf/xRWcx39Y1mBgWaZrBrBWmrQWC4u7dy3XGnLBTLXQp86OPvT7N0897zPHPN38bnuwrt8zLHbkdh+71pBlwdy+2BsJ0YNn4H96cgCsL/33C8vzpf4ff352XGv0tGDPgmLZsCj9BGjZT+83ZwE8LLf9u9m1Hl3zfjn/DCDHbvuAuEeQtQbMUvLj1GsvtigF7sR1Lmwfl33SZye2JHMJONRHkKw+/mY5zhXoeTpOV+j+c0llyhQtvoIHdda1KZiWZdmucL8NOhPvRn/Iy7z2xusJ2f7drTkQvoC0zm3ddh139J4reE9e/u092LZgCQPTtQfPW1xwcH55fSDLbT1btm3Z1peXHnCokS2Ytx9/zC6pltIbglgcDUzb6g5A8Wiag+FV5wc9q9O/eHG7lmN2HRvUvYDRiW2Z35fUWk0dxxJgeU0c17tzTTBfdUHB3XXtl+/9J7/rZf2oDE57xSu8Oc8rErxz2MyHu4Ftm45pC117MATGga85tuXeMKvtpJe26gDC5sTump+EQI7rnNxf9/x534fgc5gAjPNbcVhNsZlr4FKWaT96SdD684+/ekEOHNqCfcIsaPKYVUuD5ZURw2+3/xIics2Xh9F1jwsXoibGUCcopEB92+uP/vp269qO5fXNIAbt279vgj6d5V5My71a+KDfuqfleRYIl8zXT3YIqmuCO3YcAcTT4N/PX//z9MROjEPgU52n/uji4cVbi+kOBMGyvJ+3bOek7y/UeFHeuxXMO99LFz7wV7Q8zwr/vHixg7s1BXDjwdJK17Q/3zrWy939/cVweH19s3Vzs7XVB4gu7h9OBsKtDZCCMy3BAUWIaYOPtv3Q73B+NvRsj0AK60UvsxItfaWU64xeXL/uEkwhJo+C4y3iQbmC6UGKn9Z1HgeWbT5cR2p1lvkmPPa5lVbv/r0sGxYIR/bmznRc0xImyD9qmgGiBCdfn7tddwBq2+gqBvdfF9Sjq10l9a+7dM/yy4Dexd+WPU7iTYG649N3P/5AhkMhx93fDpn/R1isn1ZAWXlzcQKizCPghE5kJbwpyGeC6Qz8P0DsOtbJcJsZT+RPW/7mxdIGPUUr290BCYbdHj2ANhhUAZaX8ycFnQ+sC3IZmDitwd2o5/nPahvAV7TCrTBQOnnF08WDZQd5fJAk9fjo83KcR+vl+2jbr/ZXMLCZtTJYXlEVrh2wT/1nUCF4W1pmTLbtOObg5PuH/pMPyqvEuNX2yq9qdZ7F+Vna++Sv0LNP2zfDi+fnh4cTXw8Pd/ejYX+r1/GZwhcafpoQ9LTWHelgnSqyuv4T5adJWvf2PRsQC7H95FqzZ4Vdc7AU8/Mkpylat2e9K1FYBKKwCERhEYjCIhCFRSAKi0AUFoEoLAJRWASisAhEYRGIwiIQhUUgCotAFBaBKCwCUVgEorAIRGERiMIiEIVFIAqLQBQWgSgsAlFYBKKwCERhEYjCIhCFRSAKi0AUFoEoLAJRWASisAhEYRGIwiIQhUUgCotAFBaBKCwCUVgEorAIRGERKIS1zbBUb4rb2NxgNi63f/7/f+0nEPcrgLV5ObrZpnpTV5serI3Ny1+o3tSmH4ZUM+t/uPqyk0MgrVgAAAAASUVORK5CYII=" alt="" />
-          <button>Save</button>
-        </div>
-        <div className="center">
-          <h3>Amazon<span>5 days to go</span></h3>
-          <h3>Senior UI/UX Designer</h3>
-          <div>
-            <h4>Part time</h4>
-            <h4>Senior level</h4>
-          </div>
-        </div>
-        <div className="bottom">
-          <div>
-            <h3>$120/hr</h3>
-            <p>Mumbai,India</p>
-            <button>Apply Now</button>
-          </div>
-        </div>
-      </div>
+      {jobOpenings.map(function (el) {
+        return <Card companyname={el.company} post={el.title} place={el.location} sal={el.salary} />
+      })}
     </div>
   )
 }
 
-export default App
+export default App;
